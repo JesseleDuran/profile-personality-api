@@ -20,4 +20,4 @@ Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
 
-Route.post('/user/register', 'UserController.registerManual')
+Route.post('/user/register', 'UserController.registerManual').validator('StoreUser')
