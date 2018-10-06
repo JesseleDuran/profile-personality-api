@@ -21,3 +21,4 @@ Route.get('/', () => {
 })
 
 Route.post('/user/register', 'UserController.registerManual').validator('StoreUser')
+Route.post('/save/respuesta', 'RespuestaController.saveRespuesta').validator('SaveRespuesta')
