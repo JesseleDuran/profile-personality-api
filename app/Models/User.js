@@ -21,6 +21,18 @@ class User extends Model {
     })
   }
 
+  static get table () {
+    return 'users'
+  }
+
+  static get createdAtColumn () {
+    return null
+  }
+
+  static get updatedAtColumn () {
+    return null
+  }
+
   /**
    * A relationship on tokens is required for auth to
    * work. Since features like `refreshTokens` or
