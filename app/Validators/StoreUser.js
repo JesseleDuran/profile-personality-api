@@ -3,7 +3,7 @@
 class StoreUser {
   get rules () {
     return {
-      'cedula': 'required|integer|unique:users',
+      'cedula': 'required|integer',
       'genero': 'required|string', 
       'fecha_nacimiento': 'required|date', 
       'edad': 'required|integer', 
