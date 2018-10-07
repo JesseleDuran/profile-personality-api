@@ -24,3 +24,5 @@ Route.post('/user/register', 'UserController.registerManual').validator('StoreUs
 Route.post('/save/respuesta', 'RespuestaController.saveRespuesta').validator('SaveRespuesta')
 
 Route.get('/get/pregunta/:id_pregunta', 'PreguntaController.getPregunta')
+
+Route.get('/get/resultado/:id_user', 'RespuestaController.calculateResultado')
