@@ -27,4 +27,4 @@ Route.get('/get/pregunta/:id_pregunta', 'PreguntaController.getPregunta')
 
 Route.get('/get/resultado/:id_user', 'RespuestaController.calculateResultado')
 
-Route.get('/start/simulator/:cantidad', 'SimulatorController.startSimulator')
+Route.get('/start/simulator/:cantidad', 'SimulatorController.startSimulator2')
