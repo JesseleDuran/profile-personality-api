@@ -4,6 +4,7 @@ const Database = use('Database')
 const Respuesta = use('App/Models/Respuesta')
 const faker = use('faker')
 const moment = use('moment')
+var knex = use('knex')
 
 class SimulatorController {
 
@@ -147,9 +148,28 @@ class SimulatorController {
         return await countFavCases
     }
 
-    async makeCube({response, params}) {
+    async makeCube({response, request}) {
+        const rules = request.post()
+   
+        var idsArray = rules.map(function(x) {
+        return x.id;
+        })
+        //idsArray.push('total')
+        var idsString = idsArray.toString()
 
-        
+        var result = await Database
+            .table('respuesta')
+            .select(knex.raw(idsString))
+            .innerJoin('users', 'users.id', 'respuesta.id_user')
+            .innerJoin('tests', 'tests.id_pregunta', 'respuesta.id_pregunta')
+            .groupByRaw(idsString)
+            .count('* as total')
+
+        try {
+            return await response.status(201).json(result)
+        } catch (error) {
+            return await response.status(401).send({"error": error.message})
+        }
     }
 }
 

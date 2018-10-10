@@ -30,4 +30,4 @@ Route.get('/get/resultado/:id_user', 'RespuestaController.calculateResultado')
 
 Route.get('/start/simulator/:cantidad', 'SimulatorController.startSimulator2')
 
-Route.get('/show/cube/:rules', 'SimulatorController.makeCube')
+Route.post('/show/cube', 'SimulatorController.makeCube')
