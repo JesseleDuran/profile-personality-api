@@ -21,6 +21,7 @@ Route.get('/', () => {
 })
 
 Route.post('/user/register', 'UserController.registerManual').validator('StoreUser')
+Route.get('/user/done/:cedula', 'UserController.alreadyTestDone')
 Route.post('/save/respuesta', 'RespuestaController.saveRespuesta').validator('SaveRespuesta')
 
 Route.get('/get/pregunta/:id_pregunta', 'PreguntaController.getPregunta')
@@ -28,3 +29,5 @@ Route.get('/get/pregunta/:id_pregunta', 'PreguntaController.getPregunta')
 Route.get('/get/resultado/:id_user', 'RespuestaController.calculateResultado')
 
 Route.get('/start/simulator/:cantidad', 'SimulatorController.startSimulator2')
+
+Route.get('/show/cube/:rules', 'SimulatorController.makeCube')

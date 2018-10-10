@@ -34,6 +34,17 @@ class UserController {
             }
         }   
     }
+
+    async alreadyTestDone ({request, response, params}) {
+        const cedula = params.cedula
+        const isExistedUser = await User.findBy('cedula', cedula)
+        
+        if(isExistedUser) {
+            return response.status(201).json({"user": isExistedUser, "nuevo": false})
+        } else {
+            return response.status(401).send({"error": error.message})
+        }   
+    }
 }
 
 module.exports = UserController

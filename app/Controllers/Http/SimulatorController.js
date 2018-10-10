@@ -7,6 +7,7 @@ const moment = use('moment')
 
 class SimulatorController {
 
+    //probabilidad
     async startSimulator ({response, params}) {
         const cantidad = params.cantidad
 
@@ -144,6 +145,11 @@ class SimulatorController {
         .getCount()
         
         return await countFavCases
+    }
+
+    async makeCube({response, params}) {
+
+        
     }
 }
 
