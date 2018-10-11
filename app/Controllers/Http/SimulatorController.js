@@ -5,6 +5,7 @@ const Respuesta = use('App/Models/Respuesta')
 const faker = use('faker')
 const moment = use('moment')
 var knex = use('knex')
+var _ = use('lodash')
 
 class SimulatorController {
 
@@ -149,12 +150,13 @@ class SimulatorController {
     }
 
     async makeCube({response, request}) {
-        const rules = request.post()
+        var rules = request.post()
+        var rulesArray = _.values(rules)
    
-        var idsArray = rules.map(function(x) {
-        return x.id;
+        var idsArray = rulesArray.map(function(x) {
+            return x.id;
         })
-        //idsArray.push('total')
+
         var idsString = idsArray.toString()
 
         var result = await Database
